@@ -7,9 +7,9 @@
 * All rights reserved
 */
 
-#ifndef _MODULE_H
-#define _MODULE_H
+#ifndef _ADC_H
+#define _ADC_H
 
-void adc_read(uint8_t adc_mux, uint16_t *adc_val, uint16_t adc_val_len);
 
-#endif /* _MODULE_H */
+
+#endif /* _ADC_H */

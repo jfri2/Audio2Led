@@ -1,4 +1,4 @@
-/** @file module.h
+/** @file msgeq7.h
 *
 * @brief A description of the module's purpose.
 *
@@ -7,9 +7,9 @@
 * All rights reserved
 */
 
-#ifndef _MODULE_H
-#define _MODULE_H
+#ifndef _MSGEQ7_H
+#define _MSGEQ7_H
 
-void adc_read(uint8_t adc_mux, uint16_t *adc_val, uint16_t adc_val_len);
 
-#endif /* _MODULE_H */
+
+#endif /* _MSGEQ7_H */

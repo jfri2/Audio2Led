@@ -1,4 +1,4 @@
-/** @file module.h
+/** @file delay.h
 *
 * @brief A description of the module's purpose.
 *
@@ -7,9 +7,9 @@
 * All rights reserved
 */
 
-#ifndef _MODULE_H
-#define _MODULE_H
+#ifndef _DELAY_H
+#define _DELAY_H
 
-void adc_read(uint8_t adc_mux, uint16_t *adc_val, uint16_t adc_val_len);
 
-#endif /* _MODULE_H */
+
+#endif /* _DELAY_H */
