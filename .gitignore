@@ -81,3 +81,5 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+Software/Audio2Led/module.c
+Software/Audio2Led/module.h
