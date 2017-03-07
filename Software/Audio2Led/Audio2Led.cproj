@@ -118,6 +118,42 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="board.h">
+      <SubType>compile</SubType>
+      <Link>board.h</Link>
+    </Compile>
+    <Compile Include="Drivers\adc.c">
+      <SubType>compile</SubType>
+      <Link>adc.c</Link>
+    </Compile>
+    <Compile Include="Drivers\adc.h">
+      <SubType>compile</SubType>
+      <Link>adc.h</Link>
+    </Compile>
+    <Compile Include="Drivers\gpio.c">
+      <SubType>compile</SubType>
+      <Link>gpio.c</Link>
+    </Compile>
+    <Compile Include="Drivers\gpio.h">
+      <SubType>compile</SubType>
+      <Link>gpio.h</Link>
+    </Compile>
+    <Compile Include="Drivers\msgeq7.c">
+      <SubType>compile</SubType>
+      <Link>msgeq7.c</Link>
+    </Compile>
+    <Compile Include="Drivers\msgeq7.h">
+      <SubType>compile</SubType>
+      <Link>msgeq7.h</Link>
+    </Compile>
+    <Compile Include="Drivers\timer.c">
+      <SubType>compile</SubType>
+      <Link>timer.c</Link>
+    </Compile>
+    <Compile Include="Drivers\timer.h">
+      <SubType>compile</SubType>
+      <Link>timer.h</Link>
+    </Compile>
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>

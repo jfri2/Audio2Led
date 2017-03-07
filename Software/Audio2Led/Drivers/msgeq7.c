@@ -8,13 +8,42 @@
 */
 
 #include "msgeq7.h"
+#include "gpio.h"
+#include "../board.h"
+#include "adc.h"
+#include <util/delay.h>
 
 /*!
-* @brief Read multiple values from ADC
-* @param[in] adc_mux    ADC channel to read
-* @param[in] *adc_val   Pointer to location to store data read from ADC
-* @param[in] *adc_val_len   Length of adc_val (number of reads to perform)
+* @brief Get seven audio band levels from MSGEQ7
+* @param[in] *audio     Pointer to location to store data read from MSGEQ7
 * @return void
 */
-// Function goes here
+void msgeq7_get_audio(uint16_t *audio)
+{
+    // Setup bitbang interface to MSGEQ7
+    GPIO_PORT &= ~((1<<MSGEQ7_STR) | (1<<MSGEQ7_RST));  
+    GPIO_PORT |=   (1<<MSGEQ7_RST);
+    _delay_us(100);
+    GPIO_PORT |=   (1<<MSGEQ7_STR);
+    _delay_us(50);
+    GPIO_PORT &=  ~(1<<MSGEQ7_STR);
+    _delay_us(50);
+    GPIO_PORT &=  ~(1<<MSGEQ7_RST);
+    GPIO_PORT |=   (1<<MSGEQ7_STR);
+    _delay_us(50); 
+    
+    // Bitbang and read each band
+    for(uint8_t i=0; i<MSGEQ7_AUD_BANDS; i++)
+    {
+        GPIO_PORT &= ~(1<<MSGEQ7_STR);\
+        _delay_us(30);
+        audio[i] = adc_get_avg();  // TBD
+        _delay_us(30);  // TBD
+        GPIO_PORT &= ~(1<<MSGEQ7_STR);
+    }  
+}
 
+void msgeq7_init(void)
+{
+    GPIO_DDR  |=  ((1<<MSGEQ7_STR) | (1<<MSGEQ7_RST));  // Set rst and strobe to output
+}

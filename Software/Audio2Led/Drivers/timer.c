@@ -1,4 +1,4 @@
-/** @file module.c
+/** @file timer.c
 *
 * @brief A description of the module's purpose.
 *
@@ -7,7 +7,7 @@
 * All rights reserved
 */
 
-#include "module.h"
+#include "timer.h"
 
 /*!
 * @brief Read multiple values from ADC

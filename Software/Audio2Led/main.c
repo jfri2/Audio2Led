@@ -9,9 +9,9 @@
 #include <stdint.h>
 #include <avr/io.h>
 #include <avr/interrupt.h>
+#include "Drivers/msgeq7.h"
 
 void system_init(void);
-
 
 int main(void)
 {
@@ -22,6 +22,10 @@ int main(void)
     }
 }
 
+/*!
+* @brief @todo
+* @return void
+*/
 void system_init(void)
 {
     
