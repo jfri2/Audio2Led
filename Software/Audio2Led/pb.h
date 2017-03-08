@@ -1,4 +1,4 @@
-/** @file timer.h
+/** @file pb.h
 *
 * @brief A description of the module's purpose.
 *
@@ -7,11 +7,12 @@
 * All rights reserved
 */
 
-#ifndef _TIMER_H
-#define _TIMER_H
+#ifndef _PB_H
+#define _PB_H
 
 #include "../board.h"
+#include <avr/interrupt.h>
 
-void timer_init(void);
+void pb_init(void);
 
-#endif /* _TIMER_H */
+#endif /* _PB_H */

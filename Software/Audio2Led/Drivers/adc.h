@@ -12,6 +12,8 @@
 
 #include <stdint.h>
 
-uint16_t adc_get_avg(void);
+void adc_init(void);
+uint16_t adc_get(void);
+uint16_t adc_get_avg(uint8_t pow_2);
 
 #endif /* _ADC_H */

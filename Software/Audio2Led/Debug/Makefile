@@ -38,7 +38,7 @@ SUBDIRS :=
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../Drivers/adc.c \
-../Drivers/gpio.c \
+../pb.c \
 ../Drivers/msgeq7.c \
 ../Drivers/timer.c \
 ../main.c

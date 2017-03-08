@@ -8,10 +8,6 @@
 */
 
 #include "msgeq7.h"
-#include "gpio.h"
-#include "../board.h"
-#include "adc.h"
-#include <util/delay.h>
 
 /*!
 * @brief Get seven audio band levels from MSGEQ7
@@ -33,7 +29,7 @@ void msgeq7_get_audio(uint16_t *audio)
     _delay_us(50); 
     
     // Bitbang and read each band
-    for(uint8_t i=0; i<MSGEQ7_AUD_BANDS; i++)
+    for (uint8_t i=0; i<MSGEQ7_AUD_BANDS; i++)
     {
         GPIO_PORT &= ~(1<<MSGEQ7_STR);\
         _delay_us(30);

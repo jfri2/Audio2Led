@@ -130,11 +130,11 @@
       <SubType>compile</SubType>
       <Link>adc.h</Link>
     </Compile>
-    <Compile Include="Drivers\gpio.c">
+    <Compile Include="pb.c">
       <SubType>compile</SubType>
       <Link>gpio.c</Link>
     </Compile>
-    <Compile Include="Drivers\gpio.h">
+    <Compile Include="pb.h">
       <SubType>compile</SubType>
       <Link>gpio.h</Link>
     </Compile>

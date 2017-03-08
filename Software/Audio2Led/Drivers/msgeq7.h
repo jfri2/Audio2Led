@@ -10,8 +10,9 @@
 #ifndef _MSGEQ7_H
 #define _MSGEQ7_H
 
-#include <stdbool.h>
-#include <stdint.h>
+#include "../board.h"
+#include "adc.h"
+#include <util/delay.h>
 
 #define MSGEQ7_AUD_BANDS   7       // Audio bands in MSGEQ7
 

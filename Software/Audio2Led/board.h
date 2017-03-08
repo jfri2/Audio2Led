@@ -16,8 +16,12 @@
 #define F_CPU   16000000L
 
 // Hardware Pin Definitions
-#define GPIO_DDR	DDRD		// All GPIO Data Direction register
-#define GPIO_PORT	PORTD		// All GPIO PORT register
+#define GPIO_DDR	DDRD		// GPIO Data Direction register
+#define GPIO_PORT	PORTD		// GPIO PORT register
+#define TIMER_DDR   DDRB        // Timer DDR
+#define TIMER_PORT  PORTB       // Timer Port
+#define ADC_DDR     DDRC        // ADC DDR
+#define ADC_PORT    PORTC       // ADC Port
 #define MSGEQ7_RST	6			// MSGEQ7 Reset Pin in port gpio port 
 #define MSGEQ7_STR	5			// MSGEQ7 Strobe Pin in port gpio port 
 #define SW_0		2			// User pushbutton 0 position in gpio port

@@ -8,13 +8,40 @@
 */
 
 #include "adc.h"
+#include "../board.h"
 
 /*!
-* @brief Read multiple values from ADC
-* @param[in] adc_mux    ADC channel to read
-* @param[in] *adc_val   Pointer to location to store data read from ADC
-* @param[in] *adc_val_len   Length of adc_val (number of reads to perform)
+* @brief @todo
 * @return void
 */
-// Function goes here
+void adc_init(void)
+{
+    // Set entire ADC DDR to inputs with pullups on
+    ADC_DDR  = 0x00;
+    ADC_PORT = 0x3F;
+}
 
+/*!
+* @brief @todo
+* @return void
+*/
+uint16_t adc_get(void)
+{
+    static uint16_t adc_val = 0;
+    return (adc_val);
+}
+
+/*!
+* @brief @todo
+* @return void
+*/
+uint16_t adc_get_avg(uint8_t pow_2)
+{
+    static uint32_t adc_val = 0;
+    
+    for (uint8_t i=0; i<8; i++)
+    {
+        adc_val += adc_get();
+    }
+    return ((uint16_t)(adc_val>>pow_2));    
+}

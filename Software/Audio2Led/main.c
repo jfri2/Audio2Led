@@ -13,6 +13,17 @@
 
 void system_init(void);
 
+ISR(INT0_vect)
+{
+    // @todo
+}
+
+ISR(INT1_vect)
+{
+    // @todo
+}
+
+
 int main(void)
 {
     system_init();
@@ -28,7 +39,7 @@ int main(void)
 */
 void system_init(void)
 {
-    
-    
+    msgeq7_init();
+    pb_init();    
 }
 

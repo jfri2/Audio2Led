@@ -10,11 +10,9 @@
 #include "timer.h"
 
 /*!
-* @brief Read multiple values from ADC
-* @param[in] adc_mux    ADC channel to read
-* @param[in] *adc_val   Pointer to location to store data read from ADC
-* @param[in] *adc_val_len   Length of adc_val (number of reads to perform)
-* @return void
+* @brief @todo
 */
-// Function goes here
-
+void timer_init(void)
+{
+    TIMER_DDR
+}
