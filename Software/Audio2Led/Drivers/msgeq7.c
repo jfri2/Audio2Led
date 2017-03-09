@@ -14,7 +14,7 @@
 * @param[in] *audio     Pointer to location to store data read from MSGEQ7
 * @return void
 */
-void msgeq7_get_audio(uint8_t *audio)
+void msgeq7_get_audio(uint16_t *audio)
 {
     // Reset MSGEQ7
     MSGEQ7_STROBE_HIGH();
@@ -31,7 +31,7 @@ void msgeq7_get_audio(uint8_t *audio)
     {
         MSGEQ7_STROBE_LOW();
         _delay_us(40);  // Strobe low pulse width (40 us of 80 us (+ ADC read time) strobe period) 
-        audio[i] = adc_get();  // TBD, must take less than 40 us. Must do 4 or fewer conversions. @todo, make this average 4
+        audio[i] = adc_get_avg_4();  // TBD, must take less than 40 us. Must do 4 or fewer conversions
         MSGEQ7_STROBE_HIGH();
         _delay_us(40);  // @todo: subtract adc_get_avg time from this. It should be ok to leave in but if timing is an issue take it out
     }  

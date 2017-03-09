@@ -20,8 +20,8 @@ void adc_init(void)
     ADC_DDR  = 0x00;
     ADC_PORT = 0x3F;
     
-    // Set ADC for external AVcc reference, ADC channel 0, Left justified (8 bit)
-    ADMUX |= (1<<REFS0)|(1<<ADLAR);
+    // Set ADC for external AVcc reference, ADC channel 0
+    ADMUX |= (1<<REFS0);
     
     // Disable digital input on ADC channel 0
     DIDR0 |= (1<<ADC0D);
@@ -40,9 +40,12 @@ void adc_init(void)
 */
 uint16_t adc_get(void)
 {
+    volatile uint8_t adc_val = 0;
     ADCSRA |= (1<<ADSC);            // Start conversion
     while (ADCSRA & (1<<ADSC));     // Wait for conversion to complete   
-    return (ADCH);                  // Return upper byte of ADC register (left justified)
+    adc_val  = ADCH;                // Read upper byte of ADC result
+    adc_val |= ADCL;                // Read lower byte of ADC result
+    return (adc_val);
 }
 
 /*!
@@ -57,5 +60,5 @@ uint16_t adc_get_avg_4(void)
     {
         adc_val += adc_get();
     }
-    return ((uint8_t)(adc_val>>2));    
+    return (adc_val>>2);    
 }
