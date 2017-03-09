@@ -13,15 +13,16 @@
 #include "../board.h"
 #include "adc.h"
 #include <util/delay.h>
+#include <stdint.h>
 
 #define MSGEQ7_STROBE_HIGH()   (GPIO_PORT |=  (1<<MSGEQ7_STR))
-#define MSGEQ7_STROBE_LOW()    (GPIO_PORT |= ~(1<<MSGEQ7_STR))
+#define MSGEQ7_STROBE_LOW()    (GPIO_PORT &= ~(1<<MSGEQ7_STR))
 #define MSGEQ7_RESET_HIGH()    (GPIO_PORT |=  (1<<MSGEQ7_RST))
-#define MSGEQ7_RESET_LOW()     (GPIO_PORT |= ~(1<<MSGEQ7_RST))
+#define MSGEQ7_RESET_LOW()     (GPIO_PORT &= ~(1<<MSGEQ7_RST))
 
 #define MSGEQ7_AUD_BANDS   7       // Audio bands in MSGEQ7
 
-void msgeq7_get_audio(uint8_t *audio);
+void msgeq7_get_audio(uint16_t *audio);
 void msgeq7_init(void);
 
 #endif /* _MSGEQ7_H */

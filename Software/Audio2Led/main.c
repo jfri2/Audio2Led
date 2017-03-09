@@ -33,6 +33,7 @@ ISR(INT1_vect)
 
 int main(void)
 {
+    //WDTCSR &= (1 << WDIE);
     system_init();
 
     while (1) 

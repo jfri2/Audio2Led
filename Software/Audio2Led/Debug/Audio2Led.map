@@ -20,7 +20,7 @@ Discarded input sections
  .data          0x00000000        0x0 adc.o
  .bss           0x00000000        0x0 adc.o
  .text.adc_get_avg_4
-                0x00000000       0x40 adc.o
+                0x00000000       0x3e adc.o
  .text          0x00000000        0x0 msgeq7.o
  .data          0x00000000        0x0 msgeq7.o
  .bss           0x00000000        0x0 msgeq7.o
@@ -218,7 +218,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x284
+.text           0x00000000      0x2b8
  *(.vectors)
  .vectors       0x00000000       0x68 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega328p/avr5/crtatmega328p.o
                 0x00000000                __vector_default
@@ -302,38 +302,38 @@ END GROUP
                 0x00000090                . = ALIGN (0x2)
  *(.text.*)
  .text.adc_init
-                0x00000090       0x22 adc.o
+                0x00000090       0x2c adc.o
                 0x00000090                adc_init
- .text.adc_get  0x000000b2       0x2c adc.o
-                0x000000b2                adc_get
+ .text.adc_get  0x000000bc       0x44 adc.o
+                0x000000bc                adc_get
  .text.msgeq7_get_audio
-                0x000000de       0x6a msgeq7.o
-                0x000000de                msgeq7_get_audio
+                0x00000100       0x7c msgeq7.o
+                0x00000100                msgeq7_get_audio
  .text.msgeq7_init
-                0x00000148        0x8 msgeq7.o
-                0x00000148                msgeq7_init
+                0x0000017c        0x8 msgeq7.o
+                0x0000017c                msgeq7_init
  .text.timer_init
-                0x00000150       0x42 timer.o
-                0x00000150                timer_init
+                0x00000184       0x42 timer.o
+                0x00000184                timer_init
  .text.__vector_1
-                0x00000192       0x14 main.o
-                0x00000192                __vector_1
+                0x000001c6       0x14 main.o
+                0x000001c6                __vector_1
  .text.__vector_2
-                0x000001a6       0x14 main.o
-                0x000001a6                __vector_2
+                0x000001da       0x14 main.o
+                0x000001da                __vector_2
  .text.system_init
-                0x000001ba        0xe main.o
-                0x000001ba                system_init
- .text.main     0x000001c8       0x9a main.o
-                0x000001c8                main
+                0x000001ee        0xe main.o
+                0x000001ee                system_init
+ .text.main     0x000001fc       0x9a main.o
+                0x000001fc                main
  .text.libgcc.mul
-                0x00000262       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_umulhisi3.o)
-                0x00000262                __umulhisi3
-                0x00000280                . = ALIGN (0x2)
+                0x00000296       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_umulhisi3.o)
+                0x00000296                __umulhisi3
+                0x000002b4                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000280        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
-                0x00000280                _exit
-                0x00000280                exit
+ .fini9         0x000002b4        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
+                0x000002b4                _exit
+                0x000002b4                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -352,11 +352,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000280        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
+ .fini0         0x000002b4        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000284                _etext = .
+                0x000002b8                _etext = .
 
-.data           0x00800100        0x0 load address 0x00000284
+.data           0x00800100        0x0 load address 0x000002b8
                 [!provide]                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -381,8 +381,8 @@ END GROUP
  COMMON         0x00800103        0xe main.o
                 0x00800103                audio_level
                 0x00800111                PROVIDE (__bss_end, .)
-                0x00000284                __data_load_start = LOADADDR (.data)
-                0x00000284                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x000002b8                __data_load_start = LOADADDR (.data)
+                0x000002b8                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800111        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
@@ -470,54 +470,54 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000      0xbe8
+.debug_info     0x00000000      0xc1e
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x5f4 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega328p/avr5/crtatmega328p.o
- .debug_info    0x000005f4      0x10c adc.o
- .debug_info    0x00000700      0x257 msgeq7.o
- .debug_info    0x00000957       0x83 timer.o
- .debug_info    0x000009da      0x20e main.o
+ .debug_info    0x000005f4      0x109 adc.o
+ .debug_info    0x000006fd      0x290 msgeq7.o
+ .debug_info    0x0000098d       0x83 timer.o
+ .debug_info    0x00000a10      0x20e main.o
 
-.debug_abbrev   0x00000000      0x937
+.debug_abbrev   0x00000000      0x935
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x5a2 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega328p/avr5/crtatmega328p.o
- .debug_abbrev  0x000005a2       0xc2 adc.o
- .debug_abbrev  0x00000664      0x121 msgeq7.o
- .debug_abbrev  0x00000785       0x51 timer.o
- .debug_abbrev  0x000007d6      0x161 main.o
+ .debug_abbrev  0x000005a2       0xc0 adc.o
+ .debug_abbrev  0x00000662      0x121 msgeq7.o
+ .debug_abbrev  0x00000783       0x51 timer.o
+ .debug_abbrev  0x000007d4      0x161 main.o
 
-.debug_line     0x00000000      0x65e
+.debug_line     0x00000000      0x685
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x133 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega328p/avr5/crtatmega328p.o
- .debug_line    0x00000133      0x12d adc.o
- .debug_line    0x00000260      0x1b8 msgeq7.o
- .debug_line    0x00000418       0xcc timer.o
- .debug_line    0x000004e4      0x17a main.o
+ .debug_line    0x00000133      0x13c adc.o
+ .debug_line    0x0000026f      0x1d0 msgeq7.o
+ .debug_line    0x0000043f       0xcc timer.o
+ .debug_line    0x0000050b      0x17a main.o
 
-.debug_frame    0x00000000      0x134
+.debug_frame    0x00000000      0x144
  *(.debug_frame)
- .debug_frame   0x00000000       0x5c adc.o
- .debug_frame   0x0000005c       0x48 msgeq7.o
- .debug_frame   0x000000a4       0x24 timer.o
- .debug_frame   0x000000c8       0x6c main.o
+ .debug_frame   0x00000000       0x6c adc.o
+ .debug_frame   0x0000006c       0x48 msgeq7.o
+ .debug_frame   0x000000b4       0x24 timer.o
+ .debug_frame   0x000000d8       0x6c main.o
 
-.debug_str      0x00000000      0x47b
+.debug_str      0x00000000      0x475
  *(.debug_str)
  .debug_str     0x00000000      0x208 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega328p/avr5/crtatmega328p.o
- .debug_str     0x00000208      0x16f adc.o
-                                0x1a3 (size before relaxing)
- .debug_str     0x00000377       0x7c msgeq7.o
+ .debug_str     0x00000208      0x169 adc.o
+                                0x19d (size before relaxing)
+ .debug_str     0x00000371       0x7c msgeq7.o
                                 0x1ef (size before relaxing)
- .debug_str     0x000003f3       0x1e timer.o
+ .debug_str     0x000003ed       0x1e timer.o
                                 0x17a (size before relaxing)
- .debug_str     0x00000411       0x6a main.o
+ .debug_str     0x0000040b       0x6a main.o
                                 0x200 (size before relaxing)
 
-.debug_loc      0x00000000      0x22a
+.debug_loc      0x00000000      0x23c
  *(.debug_loc)
- .debug_loc     0x00000000       0x96 adc.o
- .debug_loc     0x00000096       0xc6 msgeq7.o
- .debug_loc     0x0000015c       0xce main.o
+ .debug_loc     0x00000000       0xde adc.o
+ .debug_loc     0x000000de       0x90 msgeq7.o
+ .debug_loc     0x0000016e       0xce main.o
 
 .debug_macinfo
  *(.debug_macinfo)
