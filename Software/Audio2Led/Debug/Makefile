@@ -38,8 +38,8 @@ SUBDIRS :=
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../Drivers/adc.c \
-../pb.c \
 ../Drivers/msgeq7.c \
+../Drivers/pb.c \
 ../Drivers/timer.c \
 ../main.c
 
@@ -52,29 +52,29 @@ ASM_SRCS +=
 
 OBJS +=  \
 adc.o \
-gpio.o \
 msgeq7.o \
+pb.o \
 timer.o \
 main.o
 
 OBJS_AS_ARGS +=  \
 adc.o \
-gpio.o \
 msgeq7.o \
+pb.o \
 timer.o \
 main.o
 
 C_DEPS +=  \
 adc.d \
-gpio.d \
 msgeq7.d \
+pb.d \
 timer.d \
 main.d
 
 C_DEPS_AS_ARGS +=  \
 adc.d \
-gpio.d \
 msgeq7.d \
+pb.d \
 timer.d \
 main.d
 

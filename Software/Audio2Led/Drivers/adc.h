@@ -14,6 +14,6 @@
 
 void adc_init(void);
 uint16_t adc_get(void);
-uint16_t adc_get_avg(uint8_t pow_2);
+uint16_t adc_get_avg_4(void);
 
 #endif /* _ADC_H */
