@@ -29,7 +29,7 @@ void timer_init(void)
     TIMSK2 |= (1 << OCIE2A);
 }
 
-void timer_update(uint8_t red, uint8_t blue, uint8_t green)
+void timer_update(uint8_t red, uint8_t green, uint8_t blue)
 {
     RED_CMP = red;
     BLU_CMP = blue;

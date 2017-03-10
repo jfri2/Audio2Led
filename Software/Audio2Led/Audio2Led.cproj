@@ -156,6 +156,10 @@
       <SubType>compile</SubType>
       <Link>pb.c</Link>
     </Compile>
+    <Compile Include="Drivers\pb.h">
+      <SubType>compile</SubType>
+      <Link>pb.h</Link>
+    </Compile>
     <Compile Include="Drivers\timer.c">
       <SubType>compile</SubType>
       <Link>timer.c</Link>
