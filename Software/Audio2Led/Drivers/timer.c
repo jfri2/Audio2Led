@@ -28,3 +28,10 @@ void timer_init(void)
     //Enables interrupts for OCR2B
     TIMSK2 |= (1 << OCIE2A);
 }
+
+void timer_update(uint8_t red, uint8_t blue, uint8_t green)
+{
+    RED_CMP = red;
+    BLU_CMP = blue;
+    GRN_CMP = green;
+}

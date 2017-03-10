@@ -17,52 +17,45 @@
 */
 void adc_init(void)
 {
-    // Set entire ADC DDR to inputs with pullups on
-    //ADC_DDR  = 0x00;
-    //ADC_PORT = 0x00;
-    
-    // Set ADC for external AVcc reference, ADC channel 0
-    ADMUX |= (1<<REFS0);
-    
-    // Disable digital input on ADC channel 0
-    DIDR0 |= (1<<ADC0D);
-    
-    // Enable ADC, prescale clock to divide by 2 (13 cycles / 8 MHz clk = 1.625 usec sample period). 
-    ADCSRA |= (1<<ADEN);
-    
+
+    // setup the Analog to Digital Converter
+    ADMUX = 0x40;		        // start by selecting the voltage reference - Avcc
+    ADMUX = ADMUX | 0x00;       // Select the ADC channel - channel 0
+    ADMUX = ADMUX | 0x20;	    // set for Left Justified - Only using 8 bit of resolution
+    ADMUX |= (1 << REFS0);	    //Sets reference to AVcc                                 
+    ADCSRA = 0x04;	            // select the ADC clock frequency - Clock / 128
+    ADCSRA = ADCSRA | 0x80;	    // enable the ADC
+        
     // Do one ADC conversion to clear registers
     ADCSRA |= (1<<ADSC);
-    while (ADCSRA & (1<<ADSC));    
+    while (ADCSRA & (1<<ADSC));   
+    DDRD |= (1<<PORTD7); 
 }
 
 /*!
 * @brief @todo
 * @return void
 */
-uint16_t adc_get(void)
-{
-    volatile uint16_t adc_val = 0;
-    
+uint8_t adc_get(void)
+{    
+PORTD |= (1<<PORTD7);       // DEBUG
     ADCSRA |= (1<<ADSC);            // Start conversion
     while (ADCSRA & (1<<ADSC));     // Wait for conversion to complete   
-
-    adc_val = ADCL;	                // Read lower byte from ADC     
-    adc_val = ADCH<<8;              // Read upper byte of ADC result
-  
-    return (adc_val);
+PORTD &= ~(1<<PORTD7);      // DEBUG
+    return (ADCH);
 }
 
 /*!
 * @brief @todo
 * @return void
 */
-uint16_t adc_get_avg_4(void)
+uint8_t adc_get_avg_4(void)
 {
     volatile uint16_t adc_val = 0;
     
     for (uint8_t i=0; i<4; i++)
     {
-        adc_val += adc_get();
+        adc_val += (uint16_t)adc_get();
     }
-    return (adc_val>>2);    
+    return ((uint8_t)(adc_val>>2));    
 }

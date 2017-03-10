@@ -13,7 +13,7 @@
 #include <stdint.h>
 
 void adc_init(void);
-uint16_t adc_get(void);
-uint16_t adc_get_avg_4(void);
+uint8_t adc_get(void);
+uint8_t adc_get_avg_4(void);
 
 #endif /* _ADC_H */

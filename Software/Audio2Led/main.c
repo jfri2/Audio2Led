@@ -16,7 +16,7 @@
 
 void system_init(void);
 
-uint16_t audio_level[MSGEQ7_AUD_BANDS];
+uint8_t audio_level[MSGEQ7_AUD_BANDS];
 uint8_t bass = 0;
 uint8_t mid = 0;
 uint8_t treb = 0;
@@ -33,18 +33,18 @@ ISR(INT1_vect)
 
 int main(void)
 {
-    //WDTCSR &= (1 << WDIE);
     system_init();
-
+    //sei();										//Enables global interrupts
+        
     while (1) 
     {
         // Get audio levels
         msgeq7_get_audio(audio_level);
         
         // Assign to bass/mid/treb
-        bass = (uint8_t) ((audio_level[0] + audio_level[1])                  >> 3);         // bitshift 2 over (cast to 8 bit) and average
-        mid  = (uint8_t)(((audio_level[2] + audio_level[3] + audio_level[4]) >> 2) / 3);    // bitshift 2 over and average
-        treb = (uint8_t) ((audio_level[5] + audio_level[6])                  >> 3);         // bitshift 2 over and average
+        bass = (((audio_level[0] + audio_level[1]) / 2));
+        mid  = (((audio_level[2] + audio_level[3] + audio_level[4]) / 3));
+        treb = (((audio_level[5] + audio_level[6]) / 3));       
         
         // Assign to timer outputs
         timer_update(treb, bass, mid);
@@ -57,8 +57,8 @@ int main(void)
 */
 void system_init(void)
 {
-    timer_init();
+    msgeq7_init(); 
     adc_init();
-    msgeq7_init();  
+    timer_init(); 
 }
 

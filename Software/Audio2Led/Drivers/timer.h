@@ -13,15 +13,7 @@
 #include "../board.h"
 
 void timer_init(void);
+void timer_update(uint8_t red, uint8_t blue, uint8_t green);
 
-/*!
-* @brief @todo
-*/
-inline void timer_update(uint8_t red, uint8_t blue, uint8_t green)
-{
-    RED_CMP = red;
-    BLU_CMP = blue;
-    GRN_CMP = green;
-}
 
 #endif /* _TIMER_H */
